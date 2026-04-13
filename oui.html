@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💖 YESSS !!</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: linear-gradient(135deg, #fff0f8 0%, #ffe4f0 50%, #fff5e0 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    text-align: center;
+    padding: 20px;
+  }
+
+  /* confetti */
+  .confetti-piece {
+    position: fixed;
+    top: -20px;
+    width: 10px;
+    height: 14px;
+    border-radius: 3px;
+    animation: confettiFall linear forwards;
+  }
+  @keyframes confettiFall {
+    0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  }
+
+  .main-content {
+    position: relative;
+    z-index: 1;
+    animation: popIn 0.7s cubic-bezier(.34,1.56,.64,1) both;
+  }
+  @keyframes popIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+  }
+
+  .big-heart {
+    font-size: 100px;
+    animation: heartbeat 1s ease-in-out infinite;
+    display: block;
+    margin-bottom: 10px;
+  }
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    15% { transform: scale(1.18); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.12); }
+  }
+
+  h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.4rem;
+    background: linear-gradient(135deg, #ff3d77, #ff9d00, #ff3d77);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 1.15rem;
+    color: #c05080;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+
+  .emoji-row {
+    font-size: 2rem;
+    letter-spacing: 6px;
+    margin-bottom: 30px;
+    animation: wiggle 1.5s ease-in-out infinite;
+  }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+
+  .back-btn {
+    display: inline-block;
+    padding: 12px 36px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ff6b9d, #ff3d77);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 18px #ffb3cb;
+    transition: transform 0.15s;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+  }
+  .back-btn:hover { transform: scale(1.07); }
+</style>
+</head>
+<body>
+
+<div class="main-content">
+  <span class="big-heart">💖</span>
+  <h1>YESSS !! 🎉<br>Je suis trop content(e) !</h1>
+  <p class="subtitle">
+    Tu viens de faire la meilleure décision<br>
+    de ta vie 😘✨
+  </p>
+  <div class="emoji-row">🌸 💕 🥰 💕 🌸</div>
+
+</div>
+
+<script>
+// Confetti
+const colors = ['#ff3d77','#ffb3cb','#ffd700','#a78bfa','#34d399','#60a5fa','#fb923c'];
+for (let i = 0; i < 80; i++) {
+  const c = document.createElement('div');
+  c.className = 'confetti-piece';
+  c.style.left = Math.random() * 100 + 'vw';
+  c.style.background = colors[Math.floor(Math.random() * colors.length)];
+  c.style.width = (8 + Math.random() * 8) + 'px';
+  c.style.height = (10 + Math.random() * 10) + 'px';
+  c.style.animationDuration = (2.5 + Math.random() * 3) + 's';
+  c.style.animationDelay = (Math.random() * 2) + 's';
+  document.body.appendChild(c);
+}
+
+// Re-launch confetti loop
+setInterval(() => {
+  const colors2 = ['#ff3d77','#ffb3cb','#ffd700','#a78bfa','#34d399','#60a5fa'];
+  for (let i = 0; i < 20; i++) {
+    const c = document.createElement('div');
+    c.className = 'confetti-piece';
+    c.style.left = Math.random() * 100 + 'vw';
+    c.style.background = colors2[Math.floor(Math.random() * colors2.length)];
+    c.style.width = (8 + Math.random() * 8) + 'px';
+    c.style.height = (10 + Math.random() * 10) + 'px';
+    c.style.animationDuration = (2.5 + Math.random() * 3) + 's';
+    c.style.animationDelay = '0s';
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 6000);
+  }
+}, 3000);
+</script>
+</body>
+</html>
